@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(PUBLIC).permitAll();
                     auth.requestMatchers("/api/v3/admin/**").hasAnyRole(ADMIN.name());
-                    auth.requestMatchers(GET, "/api/v3/management/**").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name());
+                    auth.requestMatchers(GET, "/api/v3/management/").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name());
                     auth.requestMatchers(POST, "/api/v3/management/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name());
                     auth.requestMatchers(PUT, "/api/v3/management/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name());
                     auth.requestMatchers(DELETE, "/api/v3/management/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name());

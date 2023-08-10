@@ -21,12 +21,12 @@ public class TwoFactorAuthenticationService {
         return new DefaultSecretGenerator().generate();
     }
 
-    public String generateQrCodeImageUri(String secret) {
+    public String generateQrCodeImageUri(String secret, String email) {
         QrData data = new QrData.Builder()
-                .label("Alibou Coding 2FA example")
+                .label("GusSoft Coding 2FA")
                 .secret(secret)
-                .issuer("Alibou-Coding")
-                .algorithm(HashingAlgorithm.SHA256)
+                .issuer(email)
+                .algorithm(HashingAlgorithm.SHA1)
                 .digits(6)
                 .period(30)
                 .build();
